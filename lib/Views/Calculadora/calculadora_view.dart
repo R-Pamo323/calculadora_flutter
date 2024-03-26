@@ -9,9 +9,6 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    void allClear(String text) {}
-    ;
-
     return GetBuilder<CalculadoraController>(
         init: CalculadoraController(),
         builder: (_) => Scaffold(
@@ -25,7 +22,7 @@ class Home extends StatelessWidget {
                       alignment: const Alignment(1.0, 1.0),
                       child: Padding(
                         padding: const EdgeInsets.only(right: 12),
-                        child: Text("Historial",
+                        child: Text(_.history,
                             style: GoogleFonts.rubik(
                                 textStyle: const TextStyle(
                                     fontSize: 24, color: Colors.white))),
@@ -36,7 +33,7 @@ class Home extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(12),
                         child: (Text(
-                          "X",
+                          _.expression,
                           style: GoogleFonts.rubik(
                               textStyle: const TextStyle(
                                   fontSize: 24, color: Colors.white)),
@@ -47,22 +44,24 @@ class Home extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         CalcButton(
-                          callback: allClear,
+                          bgColor: 0xFF00BF45,
+                          callback: _.allClear,
                           text: "AC",
                           textSize: 20,
                         ),
                         CalcButton(
-                          callback: allClear,
+                          bgColor: 0xFFE3303A,
+                          callback: _.clear,
                           text: "C",
                           textSize: 20,
                         ),
                         CalcButton(
-                          callback: allClear,
+                          callback: _.numTap,
                           text: "%",
                           textSize: 20,
                         ),
                         CalcButton(
-                          callback: allClear,
+                          callback: _.numTap,
                           text: "/",
                           textSize: 20,
                         ),
@@ -72,23 +71,98 @@ class Home extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         CalcButton(
-                          callback: allClear,
-                          text: "AC",
+                          callback: _.numTap,
+                          text: "7",
                           textSize: 20,
                         ),
                         CalcButton(
-                          callback: allClear,
-                          text: "C",
+                          callback: _.numTap,
+                          text: "8",
                           textSize: 20,
                         ),
                         CalcButton(
-                          callback: allClear,
-                          text: "%",
+                          callback: _.numTap,
+                          text: "9",
                           textSize: 20,
                         ),
                         CalcButton(
-                          callback: allClear,
-                          text: "/",
+                          callback: _.numTap,
+                          text: "*",
+                          textSize: 20,
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        CalcButton(
+                          callback: _.numTap,
+                          text: "4",
+                          textSize: 20,
+                        ),
+                        CalcButton(
+                          callback: _.numTap,
+                          text: "5",
+                          textSize: 20,
+                        ),
+                        CalcButton(
+                          callback: _.numTap,
+                          text: "6",
+                          textSize: 20,
+                        ),
+                        CalcButton(
+                          callback: _.numTap,
+                          text: "-",
+                          textSize: 20,
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        CalcButton(
+                          callback: _.numTap,
+                          text: "1",
+                          textSize: 20,
+                        ),
+                        CalcButton(
+                          callback: _.numTap,
+                          text: "2",
+                          textSize: 20,
+                        ),
+                        CalcButton(
+                          callback: _.numTap,
+                          text: "3",
+                          textSize: 20,
+                        ),
+                        CalcButton(
+                          callback: _.numTap,
+                          text: "+",
+                          textSize: 20,
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        CalcButton(
+                          callback: _.numTap,
+                          text: ".",
+                          textSize: 20,
+                        ),
+                        CalcButton(
+                          callback: _.numTap,
+                          text: "0",
+                          textSize: 20,
+                        ),
+                        CalcButton(
+                          callback: _.numTap,
+                          text: "#",
+                          textSize: 20,
+                        ),
+                        CalcButton(
+                          callback: _.evaluate,
+                          text: "=",
                           textSize: 20,
                         ),
                       ],
