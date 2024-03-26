@@ -1,19 +1,16 @@
-import 'package:app_calculadora/Controllers/Calculadora/calculadora_controller.dart';
+import 'package:app_calculadora/Constants/app_colors.dart';
+import 'package:app_calculadora/Constants/app_styles.dart';
+import 'package:app_calculadora/utils/controllers_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 
+// ignore: must_be_immutable
 class CalcButton extends StatelessWidget {
   final Function callback;
-  final int bgColor;
+  Color? bgColor;
   final String text;
-  final double textSize;
-  const CalcButton(
-      {super.key,
-      required this.callback,
-      required this.text,
-      this.textSize = 28,
-      this.bgColor = 0x89000000});
+  CalcButton(
+      {super.key, required this.callback, required this.text, this.bgColor});
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +26,13 @@ class CalcButton extends StatelessWidget {
                     callback(text);
                   },
                   style: TextButton.styleFrom(
-                      backgroundColor: Color(bgColor),
-                      foregroundColor: Colors.white,
-                      padding: const EdgeInsets.all(16),
-                      textStyle: const TextStyle(fontSize: 28)),
+                    backgroundColor: bgColor,
+                    foregroundColor: MyColors.colorTexts,
+                    padding: const EdgeInsets.all(16),
+                  ),
                   child: Text(
                     text,
-                    style: GoogleFonts.rubik(
-                        textStyle: TextStyle(fontSize: textSize)),
+                    style: MyStyles.numBottons,
                   ),
                 ),
               ),

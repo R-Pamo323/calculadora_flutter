@@ -12,13 +12,13 @@ class CalculadoraController extends GetxController {
     super.onInit();
   }
 
-  void allClear() {
+  void allClear(String text) {
     _history = "";
     _expression = "";
     update();
   }
 
-  void clear() {
+  void clear(String text) {
     _expression = "";
     update();
   }
